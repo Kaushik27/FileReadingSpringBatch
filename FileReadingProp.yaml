@@ -1,0 +1,12 @@
+spring:
+    profiles: 
+      active: local
+
+app:
+    filePath: E:\Softwares\Java\SpringWorkspace\FileReadingSpringBatch\readThis.txt
+
+app:
+    oracle: 
+        url:
+        user: Developer
+        pass: Elite

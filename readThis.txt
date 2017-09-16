@@ -1,0 +1,4 @@
+name;age;gender
+kaushik;24;male
+pankaj;24;male
+kusum;24;female
