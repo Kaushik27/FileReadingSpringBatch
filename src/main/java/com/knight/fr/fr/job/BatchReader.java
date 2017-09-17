@@ -8,7 +8,6 @@ import org.springframework.batch.item.file.mapping.DefaultLineMapper;
 import org.springframework.batch.item.file.mapping.FieldSetMapper;
 import org.springframework.batch.item.file.transform.DelimitedLineTokenizer;
 import org.springframework.batch.item.file.transform.LineTokenizer;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.FileSystemResource;
@@ -18,15 +17,13 @@ import com.knight.fr.dto.FileDataDTO;
 @Configuration
 public class BatchReader {
 
-	@Value("${app.filePath}")
-	private String filePath;
-
 	@Bean
 	public ItemReader<FileDataDTO> myFileItemReader() {
-		System.err.println(filePath);
+//		System.err.println(filePath);
 		FlatFileItemReader<FileDataDTO> fileReader = new FlatFileItemReader<>();
-		fileReader.setResource(new FileSystemResource(filePath));
+		fileReader.setResource(new FileSystemResource("E:/Softwares/Java/SpringWorkspace/FileReadingSpringBatch/readThis.txt"));
 		fileReader.setLinesToSkip(1);
+		fileReader.setStrict(false);
 		LineMapper<FileDataDTO> lineMapper = createLineMapper();
 		fileReader.setLineMapper(lineMapper);
 		return fileReader;

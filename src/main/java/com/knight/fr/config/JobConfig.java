@@ -16,7 +16,7 @@ public class JobConfig {
 	JobBuilderFactory jobBuilderFactory;
 
 	@Bean
-	public Job myJobFlow(Step step1, Step step2, Step step3) {
-		return jobBuilderFactory.get("myJob").start(step1).next(step2).next(step3).build();
+	public Job myJobFlow(Step step1, Step step2) {
+		return jobBuilderFactory.get("myJob").start(step1).next(step2).build();
 	}
 }
