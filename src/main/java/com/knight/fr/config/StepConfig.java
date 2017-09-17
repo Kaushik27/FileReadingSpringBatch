@@ -26,6 +26,7 @@ public class StepConfig {
 	@Autowired
 	BatchWriter batchWriter;
 
+	
 	@Bean
 	public Step step1() {
 		return stepBuilderFactory.get("step1").tasklet(new Tasklet() {
@@ -43,14 +44,14 @@ public class StepConfig {
 				.reader(batchReader.myFileItemReader()).writer(batchWriter).build();
 	}
 
-//	@Bean
-//	public Step step3() {
-//		return stepBuilderFactory.get("step3").tasklet(new Tasklet() {
-//			@Override
-//			public RepeatStatus execute(StepContribution contribution, ChunkContext chunkContext) throws Exception {
-//				System.out.println("After Step");
-//				return RepeatStatus.FINISHED;
-//			}
-//		}).build();
-//	}
+	@Bean
+	public Step step3() {
+		return stepBuilderFactory.get("step3").tasklet(new Tasklet() {
+			@Override
+			public RepeatStatus execute(StepContribution contribution, ChunkContext chunkContext) throws Exception {
+				System.out.println("After Step");
+				return RepeatStatus.FINISHED;
+			}
+		}).build();
+	}
 }
